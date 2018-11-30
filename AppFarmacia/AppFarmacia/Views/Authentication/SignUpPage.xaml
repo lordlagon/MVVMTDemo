@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:local="clr-namespace:AppFarmacia.Behaviors;assembly=AppFarmacia"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="AppFarmacia.Views.SignUpPage"
+             Title="SignUp">
+    <StackLayout VerticalOptions="CenterAndExpand" Padding="30">
+        <Label Text="Confirme seus dados" FontSize="Large" HorizontalOptions="Center"/>
+        <Entry Placeholder="CPF" Text="{Binding Person.cpf}" Keyboard="Numeric"/>
+        <Entry Placeholder="Nome Completo" Text="{Binding Person.razao}"/>
+        <Picker Title="Sexo" SelectedItem="{Binding Person.sexo}">
+            <Picker.Items>
+                <x:String>Masculino</x:String>
+                <x:String>Feminino</x:String>
+            </Picker.Items>
+        </Picker>
+        <Entry Placeholder="Dada de Nascimento" Text="{Binding Person.data_nascto}" Keyboard="Numeric">
+            <Entry.Behaviors>
+                <local:DateFormatterBehavior/>
+            </Entry.Behaviors>
+        </Entry>
+        <Button Text="Cadastre-se" Command="{Binding SignUpCommand}"/>
+    </StackLayout>
+</ContentPage>

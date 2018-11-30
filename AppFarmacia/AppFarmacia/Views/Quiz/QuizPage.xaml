@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="AppFarmacia.Views.Quiz.QuizPage" BackgroundColor="White"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             Title="Questionário"
+             >
+    <StackLayout VerticalOptions="FillAndExpand" Padding="10,5,5,5">
+        <Label Grid.Row="0" Text="Olá, para conhecer você melhor precisamos de uma ajudinha, responda rapidamente estas perguntas abaixo:" TextColor="Black" FontSize="Large" FontAttributes="Bold" LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" />
+
+        <controls:BindableRadioGroup x:Name="ansPicker"
+                                     Grid.Row="1"
+                                     ItemsSource="{Binding ItensRadio}"
+                                     FontName="AmericanTypewriter"
+                                     SelectedIndex="{Binding ItemSelected}"
+                                     VerticalOptions="Start" />
+        <Entry Margin="5,5,5,10" Grid.Row="1"  Placeholder="Resposta" FontSize="Large"  HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+  
+</ContentPage>

@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:local="clr-namespace:AppFarmacia.Behaviors;assembly=AppFarmacia"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="AppFarmacia.Views.Profile.ProfilePage">
+    <ScrollView>
+        <!-- body -->
+        <StackLayout Grid.Row="0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+            <StackLayout.Spacing>
+                <OnPlatform x:TypeArguments="x:Double" Android="8" iOS="8" />
+            </StackLayout.Spacing>
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness" Android="16,16,16,0" iOS="16,16,16,0" />
+            </StackLayout.Padding>
+
+            <Grid RowSpacing="8" ColumnSpacing="0">
+                <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" Android="0,16,0,0" iOS="0,16,0,0" />
+                </Grid.Padding>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Text="Nome *" TextColor="#00abf5" FontSize="14" LineBreakMode="WordWrap" />
+                <Entry Grid.Row="1" Text="{Binding Person.razao}" Keyboard="Text" HeightRequest="46" HorizontalOptions="FillAndExpand" Placeholder="">
+                    <Entry.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.TextColor>
+                    <Entry.PlaceholderColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.PlaceholderColor>
+                </Entry>
+
+                <Label Grid.Row="2" Text="CPF *" TextColor="#00abf5" FontSize="14" LineBreakMode="WordWrap" />
+                <Entry Grid.Row="3" Text="{Binding Person.cpf}" Keyboard="Numeric" HeightRequest="46" HorizontalOptions="FillAndExpand" Placeholder="">
+                    <Entry.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.TextColor>
+                    <Entry.PlaceholderColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.PlaceholderColor>
+                </Entry>
+
+                <Label  Grid.Row="4" Text="Sexo *" TextColor="#00abf5" FontSize="14" LineBreakMode="WordWrap" />
+                <Picker Grid.Row="5" HeightRequest="46" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" SelectedItem="{Binding Person.sexo}" TextColor="Gray">
+                    <Picker.Items>
+                        <x:String>Masculino</x:String>
+                        <x:String>Feminino</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Grid.Row="6" Text="Data Nascimento *" TextColor="#00abf5" FontSize="14" LineBreakMode="WordWrap" />
+                <Entry Grid.Row="7" Grid.Column="0" Text="{Binding Person.data_nascto}" FontSize="14" HeightRequest="46" Keyboard="Numeric" HorizontalOptions="FillAndExpand" Placeholder="" TextColor="Black">
+                    <Entry.Behaviors>
+                        <local:DateFormatterBehavior/>
+                    </Entry.Behaviors>
+                    <Entry.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.TextColor>
+                    <Entry.PlaceholderColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.PlaceholderColor>
+                </Entry>
+                
+                <Label Grid.Row="8" Text="Telefone " TextColor="#00abf5" FontSize="14" LineBreakMode="WordWrap" />
+                <Entry Grid.Row="9" Text="{Binding Person.fone}" Keyboard="Numeric" HeightRequest="46" HorizontalOptions="FillAndExpand" Placeholder="" >
+                    <Entry.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.TextColor>
+                    <Entry.PlaceholderColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.PlaceholderColor>
+                </Entry>
+
+                <Label Grid.Row="10" Text="Celular " TextColor="#00abf5" FontSize="14" LineBreakMode="WordWrap" />
+                <Entry Grid.Row="11" Text="{Binding Person.celular}" Keyboard="Numeric" HeightRequest="46" HorizontalOptions="FillAndExpand" Placeholder="" >
+                    <Entry.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.TextColor>
+                    <Entry.PlaceholderColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.PlaceholderColor>
+                </Entry>
+
+                <Label Grid.Row="12" Text="E-mail " TextColor="#00abf5" FontSize="14" LineBreakMode="WordWrap" />
+                <Entry Grid.Row="13" Text="{Binding Person.email}" Keyboard="Text" HeightRequest="46" HorizontalOptions="FillAndExpand" Placeholder="" >
+                    <Entry.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.TextColor>
+                    <Entry.PlaceholderColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.PlaceholderColor>
+                </Entry>
+                <Label Grid.Row="14" Text="Cep *" TextColor="#00abf5" FontSize="14" LineBreakMode="WordWrap" />
+                <Entry Grid.Row="15" Text="{Binding Person.cep}" Keyboard="Numeric" HeightRequest="46" HorizontalOptions="FillAndExpand" Placeholder="" >
+                    <Entry.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.TextColor>
+                    <Entry.PlaceholderColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.PlaceholderColor>
+                </Entry>
+
+                <Label Grid.Row="16" Text="Logradouro *" TextColor="#00abf5" FontSize="14" LineBreakMode="WordWrap" />
+                <Entry Grid.Row="17" Text="{Binding Person.endereco}" Keyboard="Text" HeightRequest="46" HorizontalOptions="FillAndExpand" Placeholder="" >
+                    <Entry.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.TextColor>
+                    <Entry.PlaceholderColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.PlaceholderColor>
+                </Entry>
+
+                <Label Grid.Row="18" Text="Numero *" TextColor="#00abf5" FontSize="14" LineBreakMode="WordWrap" />
+                <Entry Grid.Row="19" Text="{Binding Person.nr}" Keyboard="Text" HeightRequest="46" HorizontalOptions="FillAndExpand" Placeholder="" >
+                    <Entry.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.TextColor>
+                    <Entry.PlaceholderColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.PlaceholderColor>
+                </Entry>
+
+                <Label Grid.Row="20" Text="Complemento" TextColor="#00abf5" FontSize="14" LineBreakMode="WordWrap" />
+                <Entry Grid.Row="21" Text="{Binding Person.complemento}" Keyboard="Text" HeightRequest="46" HorizontalOptions="FillAndExpand" Placeholder="" >
+                    <Entry.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.TextColor>
+                    <Entry.PlaceholderColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.PlaceholderColor>
+                </Entry>
+                <Label Grid.Row="22" Text="Bairro" TextColor="#00abf5" FontSize="14" LineBreakMode="WordWrap" />
+                <Entry Grid.Row="23" Text="{Binding Person.bairro}" Keyboard="Text" HeightRequest="46" HorizontalOptions="FillAndExpand" Placeholder="" >
+                    <Entry.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.TextColor>
+                    <Entry.PlaceholderColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.PlaceholderColor>
+                </Entry>
+                <Label Grid.Row="24" Text="Cidade" TextColor="#00abf5" FontSize="14" LineBreakMode="WordWrap" />
+                <Entry Grid.Row="25" Text="{Binding Person.cidade}" Keyboard="Text" HeightRequest="46" HorizontalOptions="FillAndExpand" Placeholder="" >
+                    <Entry.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.TextColor>
+                    <Entry.PlaceholderColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.PlaceholderColor>
+                </Entry>
+                
+                <Label Grid.Row="26" Text="Observação" TextColor="#00abf5" FontSize="14" LineBreakMode="WordWrap" />
+                <Entry Grid.Row="27" Text="{Binding Person.obs}" Keyboard="Text" HeightRequest="46" HorizontalOptions="FillAndExpand" Placeholder="" >
+                    <Entry.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.TextColor>
+                    <Entry.PlaceholderColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                            <OnPlatform.Android>#757575</OnPlatform.Android>
+                        </OnPlatform>
+                    </Entry.PlaceholderColor>
+                </Entry>
+
+                <Button Grid.Row="28" Text="Salvar" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" TextColor="White" HeightRequest="46" BackgroundColor="#0288D1" IsEnabled="False">
+                    <Button.FontAttributes>
+                        <OnPlatform x:TypeArguments="FontAttributes" iOS="Bold" />
+                    </Button.FontAttributes>
+                </Button>
+            </Grid>
+        </StackLayout>
+        <!-- footer actions -->
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="AppFarmacia.Views.Home.HomePage"
+             xmlns:local="clr-namespace:AppFarmacia;assembly=AppFarmacia"
+             xmlns:carousel="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             Title="PowerFarma" BackgroundColor="White">
+    <ContentPage.Content>
+        <AbsoluteLayout >
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <ScrollView x:Name="scrollview">
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="250" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <AbsoluteLayout BackgroundColor="#d1d1d1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" HeightRequest="250">
+                            <carousel:CarouselViewControl x:Name="CarouselImages" ItemsSource="{Binding Offers}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" AnimateTransition="true" IndicatorsShape="Circle" Orientation="Horizontal" ShowIndicators="false" >
+
+                                <carousel:CarouselViewControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <AbsoluteLayout BackgroundColor="#d1d1d1"  
+                                VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                            <RelativeLayout AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                                            AbsoluteLayout.LayoutFlags="All">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Image HorizontalOptions="EndAndExpand" 
+                                                           VerticalOptions="CenterAndExpand" 
+                                                           x:Name="avatar" Grid.Row="0" 
+                                                           WidthRequest="{x:Static local:App.ScreenWidth}" 
+                                                           HeightRequest="250" Aspect="AspectFill"           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor = .0}"
+                                                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor =.0}" Source = "{Binding Url}">
+                                                    </Image>
+                                                </Grid>
+                                            </RelativeLayout>
+                                        </AbsoluteLayout>
+                                    </DataTemplate>
+                                </carousel:CarouselViewControl.ItemTemplate>
+                            </carousel:CarouselViewControl>
+                        </AbsoluteLayout>
+                        <Grid  Grid.Row="1" Grid.Column="0" BackgroundColor="#E4E4E4" Padding="12,0,12,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Frame BackgroundColor="#FFFFFF" Margin="0,10,0,0" Padding="5" Grid.Row="0" HasShadow="false" CornerRadius="2">
+                                <Grid Padding="0,0,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Image Grid.Column="0" Grid.Row="0" Source="baseline_person_black_36.png">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding ProfileCommand}" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Label  Grid.Column="0" Grid.Row="1" Text="Perfil" TextColor="Black" HorizontalTextAlignment="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding ProfileCommand}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+                                    <Image Grid.Column="1" Grid.Row="0" Source="baseline_credit_card_black_36.png">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding VirtualCardCommand}"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Label  Grid.Column="1" Grid.Row="1" Text="Cartão Virtual" TextColor="Black" HorizontalTextAlignment="Center" LineBreakMode="WordWrap">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding VirtualCardCommand}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+                                    <Image Grid.Column="2" Grid.Row="0" Source="baseline_business_center_black_36.png">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding TabloidCommand}"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Label  Grid.Column="2" Grid.Row="1" Text="Promoções" TextColor="Black" HorizontalTextAlignment="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding LoyaltCardCommand}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+
+
+                                    <Image Grid.Column="3" Grid.Row="0" Source="baseline_casino_black_36.png"></Image>
+                                    <Label  Grid.Column="3" Grid.Row="1" Text="Sorteio" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+
+                                </Grid>
+                            </Frame>
+                        </Grid>
+
+                        <!--<Frame IsVisible="True" BackgroundColor="#FFFFFF" Margin="0,10,0,0" Padding="12,7,12,7" x:Name="aluguelcontent"
+                        Grid.Row="1" 
+                         HasShadow="false"
+                         CornerRadius="2">
+                                <StackLayout>
+                                    <Grid Margin="-7,0,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <Image  Grid.RowSpan="3" Margin="0,0,0,0" 
+                                        Grid.Row="0" VerticalOptions="Center"
+                                        Grid.Column="0" Source="circle.png"
+                                        WidthRequest="30" HeightRequest="30" Aspect="AspectFill">
+                                        </Image>
+
+                                        <Label Margin="0,10,0,0" Grid.Column="1" VerticalOptions="CenterAndExpand" Grid.Row="0" Text="Valor de locação" TextColor="Black" ></Label>
+                                    </Grid>
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+
+                                        <Label  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"   Text="Aluguel liquido:" TextColor="Black" Margin="0,0,0,0" FontSize="14"></Label>
+                                        <Label  HorizontalOptions="End" Grid.Column="1"  TextColor="#7D7D7D" x:Name="aluguelliquido"  FontSize="16" Text=""  
+                                        Margin="0,0,0,0"></Label>
+                                    </Grid>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+
+                                        <Label  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"   Text="Aluguel Bruto:" TextColor="Black"  FontSize="14"></Label>
+                                        <Label  HorizontalOptions="End"  Grid.Column="1"  TextColor="#7D7D7D" x:Name="aluguel"  FontSize="16" Text=""  
+                                        Margin="0,0,0,0"></Label>
+                                    </Grid>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+
+                                        <Label  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"   Text="Valor Abatimento:" TextColor="Black" Margin="0,0,0,0" FontSize="14"></Label>
+                                        <Label  HorizontalOptions="End" Grid.Column="1"  TextColor="#7D7D7D" x:Name="abatimento"  FontSize="16"   
+                                        Margin="0,0,0,0"></Label>
+                                    </Grid>
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+
+                                        <Label  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"   Text="Condomínio:" TextColor="Black" Margin="0,0,0,0" FontSize="14"></Label>
+                                        <Label   HorizontalOptions="End" Grid.Column="1"  TextColor="#7D7D7D" x:Name="condominio"  FontSize="16" 
+                                        Margin="0,0,0,0"></Label>
+                                    </Grid>
+                                    <Grid>
+
+                                        <Label x:Name="condominioText" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"  TextColor="Black" Margin="0,0,0,0" FontSize="14" 
+                                                Text="*O Valor do condomínio informado é aproximado, pois varia de acordo com o custo de administração. Orientamos que, ao visitar o imóvel, confirme os valores junto ao síndico." />
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                            <Frame BackgroundColor="#FFFFFF" Margin="0,10,0,0" Padding="5"
+                        Grid.Row="2" 
+                         HasShadow="false"
+                         CornerRadius="2">
+
+                                <Grid Padding="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Image  Grid.RowSpan="3" Margin="0,0,0,0" 
+                                Grid.Row="0" VerticalOptions="Center"
+                                Grid.Column="0" Source="centeralignment.png"
+                                WidthRequest="30" HeightRequest="30" Aspect="Fill">
+                                    </Image>
+
+
+                                    <Label  Grid.Column="1" x:Name="categoria" Grid.Row="0" Text="Apartamento" TextColor="Black" ></Label>
+                                    <Label  Grid.Column="1" TextColor="#7D7D7D"  x:Name="endereco" Grid.Row="1"  FontSize="14" Text="endereço"   Margin="0,0,0,0"></Label>
+                                    <Grid Grid.Column="1" Margin="0,5,0,0" Grid.Row="2"  >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        --><!--          Image="mapsymbol.png" --><!--
+                                        <Button  Grid.Column="0" Text="" 
+                                            x:Name="mapa" FontSize="11" BackgroundColor="#7D7D7D" 
+                                                TextColor="#FFFFFF" 
+                                                Margin="0,0,0,0">
+                                        </Button>
+                                        <Image x:Name="mapa2" Grid.Column="0" Margin="0,0,0,0"  VerticalOptions="Center"
+                                             Source="mapsymbol.png"
+                                           HeightRequest="30" Aspect="AspectFit">
+                                        </Image>
+                                        --><!--      Image="streetviewdoll.png"--><!--
+                                        <Button  Grid.Column="1" Text=""  
+                                            FontSize="11" x:Name="streeview"  BackgroundColor="#7D7D7D" 
+                                                TextColor="#FFFFFF" 
+                                                Margin="0,0,0,0"></Button>
+                                        <Image x:Name="streeview2" Grid.Column="1" Margin="0,0,0,0"  VerticalOptions="Center"
+                                             Source="streetviewdoll.png"
+                                           HeightRequest="30" Aspect="AspectFit">
+                                        </Image>
+                                        --><!--       Image="route.png"--><!--
+                                        <Button Grid.Column="2" Text="" FontSize="11"
+                                            x:Name="rotas"  BackgroundColor="#7D7D7D" 
+                                                TextColor="#FFFFFF" 
+                                                Margin="0,0,0,0"></Button>
+                                        <Image x:Name="rotas2" Grid.Column="2" Margin="0,0,0,0"  VerticalOptions="Center"
+                                             Source="route.png"
+                                           HeightRequest="30" Aspect="AspectFit"/>
+                                    </Grid>
+                                </Grid>
+                            </Frame>
+
+                            <Frame BackgroundColor="#FFFFFF" Margin="0,10,0,0" Padding="5"
+                        Grid.Row="3" 
+                        HasShadow="false"
+                        CornerRadius="2">
+
+                                <Grid Padding="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+
+                                    </Grid.RowDefinitions>
+
+                                    <Image Grid.RowSpan="1" Margin="0,0,0,0" 
+                                Grid.Row="0" VerticalOptions="Center"
+                                Grid.Column="0" Source="list2.png"
+                                WidthRequest="30" HeightRequest="30" Aspect="Fill">
+                                    </Image>
+
+                                    <Grid Grid.Column="1" Margin="0,0,0,0" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Column="0" >
+                                            <Label   
+                                          
+                                             HorizontalOptions="Center"
+                                             x:Name="dormitorios" Text="1" TextColor="Black" ></Label>
+                                            <Label TextColor="#7D7D7D"  HorizontalOptions="FillAndExpand" 
+                                             HorizontalTextAlignment="Center" FontSize="11" Text="DORMS"></Label>
+                                        </StackLayout  >
+
+                                        <StackLayout  Margin="5,0,0,0" Grid.Column="1">
+                                            <Label       
+                                             HorizontalOptions="Center" x:Name="suites" Text="1" TextColor="Black" ></Label>
+                                            <Label TextColor="#7D7D7D"  HorizontalOptions="FillAndExpand" 
+                                             HorizontalTextAlignment="Center" FontSize="11" Text="SUITE(S)"></Label>
+                                        </StackLayout>
+
+                                        <StackLayout  Margin="5,0,0,0" Grid.Column="2">
+                                            <Label      
+                                             HorizontalOptions="Center" x:Name="vagas" Text="1" TextColor="Black" ></Label>
+                                            <Label  TextColor="#7D7D7D" HorizontalOptions="FillAndExpand" 
+                                             HorizontalTextAlignment="Center" FontSize="11" Text="VAGA(S)"></Label>
+                                        </StackLayout>
+
+                                        <StackLayout Margin="5,0,0,0" Grid.Column="3">
+                                            <Label       
+                                             HorizontalOptions="Center" x:Name="area" Text="1" TextColor="Black" ></Label>
+                                            <Label  TextColor="#7D7D7D" HorizontalOptions="FillAndExpand" 
+                                             HorizontalTextAlignment="Center"  FontSize="11" Text="Área Total/Privada"></Label>
+                                        </StackLayout>
+                                    </Grid>
+
+                                </Grid>
+                            </Frame>
+
+                            <Frame BackgroundColor="#FFFFFF" Margin="0,10,0,0" Padding="5"
+                        Grid.Row="4" 
+                         HasShadow="false"
+                         CornerRadius="2">
+
+                                <Grid Padding="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Image  Grid.RowSpan="3" Margin="0,0,0,0" 
+                                Grid.Row="0" VerticalOptions="Center"
+                                Grid.Column="0" Source="leftalignment2.png"
+                                WidthRequest="30" HeightRequest="30" Aspect="Fill">
+                                    </Image>
+
+
+                                    <Label  Grid.Column="1"  Grid.Row="0" Text="Descrição" TextColor="Black" ></Label>
+                                    <Label  Grid.Column="1" TextColor="#7D7D7D" x:Name="descricao" Grid.Row="1"  FontSize="14" Text="xxx"  Margin="0,0,0,0"></Label>
+                                </Grid>
+                            </Frame>
+
+
+
+
+                            <Frame  
+                                x:Name="comodidadescontent"  BackgroundColor="#FFFFFF" Margin="0,0,0,0" Padding="5"
+                        Grid.Row="5" 
+                         HasShadow="false"
+                         CornerRadius="2">
+
+                                <Grid Padding="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Image  Grid.RowSpan="2" Margin="0,0,0,0" 
+                                Grid.Row="0" VerticalOptions="Center"
+                                Grid.Column="0" Source=""
+                                WidthRequest="20" HeightRequest="20" Aspect="Fill">
+                                    </Image>
+
+
+                                    <Label  Grid.Column="1"  Grid.Row="0" Text="Comodidades" TextColor="Black" ></Label>
+                                    <StackLayout Grid.Column="1"  Grid.Row="1"  x:Name="comodidades">
+
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+
+                            <Frame BackgroundColor="#FFFFFF" Margin="0,10,0,0" Padding="5"
+                        Grid.Row="6" 
+                         HasShadow="false"
+                         CornerRadius="2">
+
+                                <Grid Padding="5,5,5,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Image  Grid.RowSpan="3" Margin="0,0,0,0" 
+                                Grid.Row="0" VerticalOptions="Center"
+                                Grid.Column="0" Source="homepage.png"
+                                WidthRequest="20" HeightRequest="20" Aspect="Fill">
+                                    </Image>
+
+
+                                    <Label  Grid.Column="1"  Grid.Row="0" Text="Dados da loja" TextColor="Black" ></Label>
+                                    <Label  Grid.Column="1" TextColor="#7D7D7D" x:Name="dadosloja" Grid.Row="1"  FontSize="14" Text="" Margin="0,0,0,0" ></Label>
+
+                                </Grid>
+                            </Frame>
+
+                            <Frame BackgroundColor="#FFFFFF" Margin="0,10,0,10" Padding="5"
+                        Grid.Row="7" 
+                         HasShadow="false"
+                         CornerRadius="2">
+
+                                <Grid Padding="0">
+
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid Grid.Row="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image  Grid.Row="0" Margin="0,0,0,0" 
+                                    Grid.Column="0" Source=""
+                                    WidthRequest="20" HeightRequest="20" Aspect="Fill">
+                                        </Image>
+
+                                        <Label  Grid.Column="1"   Text="Gostou? Agende uma visita." TextColor="Black" ></Label>
+
+                                    </Grid>
+                                    <Button  Grid.Row="1" Text="AGENDE SUA VISITA" x:Name="agendar" IsVisible="False"  BackgroundColor="#7D7D7D" TextColor="#ecba33" Margin="5,0,5,5"></Button>
+                                    <Button  Grid.Row="2" Text="PRÉ-CADASTRO" x:Name="precadastro"  BackgroundColor="#7D7D7D" TextColor="#ecba33" Margin="5,5,5,5"></Button>
+                                    <Button  Grid.Row="3" Text="CONTATE" x:Name="contato2"  BackgroundColor="#7D7D7D" TextColor="#ecba33" Margin="5,0,5,10"></Button>
+
+
+                                </Grid>
+                            </Frame>
+                        </Grid>-->
+                    </Grid>
+                </ScrollView>
+            </StackLayout>
+
+            <!--<Frame x:Name="contato" BackgroundColor="#ECBA33"
+                  Margin="10,10,10,10" Padding="5"
+                        Grid.Row="0" 
+                         HasShadow="true"
+                         CornerRadius="28"
+                    AbsoluteLayout.LayoutBounds="1,1, 75,75" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional">
+                <Image VerticalOptions="Center"  HorizontalOptions = "Center" Source="email3.png" WidthRequest="22" HeightRequest="22"></Image>
+            </Frame>-->
+        </AbsoluteLayout >
+    </ContentPage.Content>
+</ContentPage>

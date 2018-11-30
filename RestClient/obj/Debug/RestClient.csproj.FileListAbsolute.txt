@@ -1,0 +1,9 @@
+C:\XZTech\appfarmacia\AppFarmacia\RestClient\bin\Debug\RestClient.dll
+C:\XZTech\appfarmacia\AppFarmacia\RestClient\bin\Debug\RestClient.pdb
+C:\XZTech\appfarmacia\AppFarmacia\RestClient\bin\Debug\Newtonsoft.Json.dll
+C:\XZTech\appfarmacia\AppFarmacia\RestClient\bin\Debug\Newtonsoft.Json.xml
+C:\XZTech\appfarmacia\AppFarmacia\RestClient\obj\Debug\RestClient.csproj.CoreCompileInputs.cache
+C:\XZTech\appfarmacia\AppFarmacia\RestClient\obj\Debug\RestClient.csproj.CopyComplete
+C:\XZTech\appfarmacia\AppFarmacia\RestClient\obj\Debug\RestClient.dll
+C:\XZTech\appfarmacia\AppFarmacia\RestClient\obj\Debug\RestClient.pdb
+C:\XZTech\appfarmacia\AppFarmacia\RestClient\obj\Debug\RestClient.csprojAssemblyReference.cache

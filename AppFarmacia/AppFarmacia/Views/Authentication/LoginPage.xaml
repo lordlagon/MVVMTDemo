@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:local="clr-namespace:AppFarmacia.Behaviors;assembly=AppFarmacia"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="AppFarmacia.Views.LoginPage"
+             Title="Login">
+    <StackLayout VerticalOptions="CenterAndExpand" Padding="30">
+        <Label Text="Coloque seu CPF aqui" FontSize="Large" HorizontalOptions="Center"/>
+        <Entry Placeholder="CPF" Text="{Binding Person.cpf}" Keyboard="Numeric">
+            <Entry.Behaviors>
+                <local:CpfFormatterBehavior />
+            </Entry.Behaviors>
+        </Entry>
+        <Button Text="Login" Command="{Binding LoginCommand}"/>
+    </StackLayout>
+</ContentPage>
