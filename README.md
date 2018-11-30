@@ -1,3 +1,3 @@
 ﻿# appfarmacia
 
-Exemplo de MVVM 
+Exemplo de MVVM Utilizando o Prism
